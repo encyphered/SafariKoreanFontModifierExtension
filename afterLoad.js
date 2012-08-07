@@ -41,6 +41,5 @@
 
     if (isKorean) {
         safari.self.tab.dispatchMessage('forceDefaultFont');
-//        body.className = (!body.className ? '_KFMmodifier' : body.className + ' _KFMmodifier');
     }
 })();
