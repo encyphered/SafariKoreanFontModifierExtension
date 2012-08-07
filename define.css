@@ -36,7 +36,7 @@
 }
 @font-face {
     font-family: '맑은 고딕';
-    src: local('MalgunGothic');
+    src: local('MalgunGothic'),  local('Apple SD Gothic Neo');
 }
 @font-face {
     font-family: 'AppleGothic';
@@ -45,14 +45,4 @@
 @font-face {
     font-family: monospace;
     src: local('Menlo'), local('Monaco'), local('NanumGothicCoding');
-}
-
-* {
-    font-family: 'Apple SD Gothic Neo', 'NanumGothic', sans-serif;
-}
-body._KFMmodifier * {
-    font-family: 'Apple SD Gothic Neo', 'NanumGothic', sans-serif !important;
-}
-body._KFMmodifier pre, body._KFMmodifier pre *, body._KFMmodifier code, body._KFMmodifier code * {
-    font-family: monospace !important;
 }

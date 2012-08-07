@@ -1,4 +1,8 @@
 (function() {
+    if (window.forceDefaultFont || window.location.href == 'about:blank') {
+        return;
+    }
+
     var isKorean = false;
     var htmlCharset = null, contentCharset = null;
 
@@ -36,6 +40,7 @@
     }
 
     if (isKorean) {
-        body.className = (!body.className ? '_KFMmodifier' : body.className + ' _KFMmodifier');
+        safari.self.tab.dispatchMessage('forceDefaultFont');
+//        body.className = (!body.className ? '_KFMmodifier' : body.className + ' _KFMmodifier');
     }
 })();

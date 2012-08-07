@@ -1,0 +1,17 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+<script>
+    safari.application.addEventListener('message', function(event) {
+        if (event.name == 'forceDefaultFont') {
+            safari.extension.addContentStyleSheetFromURL(safari.extension.baseURI + 'force.css');
+        }
+    }, true);
+</script>
+</head>
+
+<body>
+</body>
+
+</html>
