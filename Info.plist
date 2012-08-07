@@ -51,5 +51,7 @@
 			<string>All</string>
 		</dict>
 	</dict>
+	<key>Update Manifest URL</key>
+	<string>https://raw.github.com/encyphered/SafariKoreanFontModifierExtension/master/Update.plist</string>
 </dict>
 </plist>
