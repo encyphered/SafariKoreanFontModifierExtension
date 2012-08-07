@@ -1,4 +1,5 @@
 (function() {
+    return;
     if (window.forceDefaultFont || window.location.href == 'about:blank') {
         return;
     }
@@ -27,10 +28,8 @@
         }
     }
 
-    if (htmlCharset != null) {
-        if (htmlCharset.toLowerCase().indexOf("ko") >= 0) {
-            isKorean = true;
-        }
+    if (htmlCharset != null && htmlCharset.toLowerCase().indexOf("ko") >= 0) {
+        isKorean = true;
     } else if (contentCharset != null) {
         if (contentCharset.match(/(ms[ _-]{0,1}949|euc[_-]{0,1}kr)/i)) {
             isKorean = true;
@@ -40,6 +39,7 @@
     }
 
     if (isKorean) {
-        safari.self.tab.dispatchMessage('forceDefaultFont');
+        window.alert('force set');
+        safari.self.tab.dispatchMessage('forceDefaultFont', window.location.host);
     }
 })();

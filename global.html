@@ -4,8 +4,22 @@
 <head>
 <script>
     safari.application.addEventListener('message', function(event) {
-        if (event.name == 'forceDefaultFont') {
-            safari.extension.addContentStyleSheetFromURL(safari.extension.baseURI + 'force.css');
+        if (event.name == 'getMatchedHost') {
+            var host = event.message;
+            var targetHosts = safari.extension.settings.hosts.split(' ');
+            for (var i in targetHosts) {
+                if (host.indexOf(targetHosts[i]) >= 0) {
+                    event.target.page.dispatchMessage('returnMatchedHost', targetHosts[i]);
+                    return;
+                }
+            }
+            safari.extension.removeContentStyleSheet(safari.extension.baseURI + 'force.css');
+        } else if (event.name == 'forceDefaultFont') {
+            var host = event.message;
+            host = (host.indexOf('.') != 0) ? '*.' + host : '*' + host;
+            host = (host.charAt(host.length - 1) == '/') ? host + '*' : host + '/*';
+
+            safari.extension.addContentStyleSheetFromURL(safari.extension.baseURI + 'force.css', ['http://' + host, 'https://' + host]);
         }
     }, true);
 </script>
