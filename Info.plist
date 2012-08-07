@@ -9,7 +9,7 @@
 	<key>CFBundleDisplayName</key>
 	<string>KoreanFontModifier</string>
 	<key>CFBundleIdentifier</key>
-	<string>com.yourcompany.koreanfontmodifier</string>
+	<string>net.encyphered.koreanfontmodifier</string>
 	<key>CFBundleInfoDictionaryVersion</key>
 	<string>6.0</string>
 	<key>CFBundleShortVersionString</key>
