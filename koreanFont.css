@@ -1,0 +1,58 @@
+@font-face {
+    font-family: '돋움';
+    src: local('Apple SD Gothic Neo'), local('NanumGothic');
+}
+@font-face {
+    font-family: 'Dotum';
+    src: local('Apple SD Gothic Neo'), local('NanumGothic');
+}
+@font-face {
+    font-family: '돋움체';
+    src: local('Apple SD Gothic Neo'), local('NanumGothic');
+}
+@font-face {
+    font-family: 'DotumChe';
+    src: local('Apple SD Gothic Neo'), local('NanumGothic');
+}
+@font-face {
+    font-family: '굴림';
+    src: local('Apple SD Gothic Neo'), local('NanumGothic');
+}
+@font-face {
+    font-family: 'Gulim';
+    src: local('Apple SD Gothic Neo'), local('NanumGothic');
+}
+@font-face {
+    font-family: '굴림체';
+    src: local('Apple SD Gothic Neo'), local('NanumGothic');
+}
+@font-face {
+    font-family: 'GulimChe';
+    src: local('Apple SD Gothic Neo'), local('NanumGothic');
+}
+@font-face {
+    font-family: '나눔고딕';
+    src: local('NanumGothic');
+}
+@font-face {
+    font-family: '맑은 고딕';
+    src: local('MalgunGothic');
+}
+@font-face {
+    font-family: 'AppleGothic';
+    src: local('Apple SD Gothic Neo'), local('NanumGothic');
+}
+@font-face {
+    font-family: monospace;
+    src: local('Menlo'), local('Monaco'), local('NanumGothicCoding');
+}
+
+* {
+    font-family: 'Apple SD Gothic Neo', 'NanumGothic', sans-serif;
+}
+body._KFMmodifier * {
+    font-family: 'Apple SD Gothic Neo', 'NanumGothic', sans-serif !important;
+}
+body._KFMmodifier pre, body._KFMmodifier pre *, body._KFMmodifier code, body._KFMmodifier code * {
+    font-family: monospace !important;
+}
