@@ -13,9 +13,9 @@
 	<key>CFBundleInfoDictionaryVersion</key>
 	<string>6.0</string>
 	<key>CFBundleShortVersionString</key>
-	<string>1.0.6</string>
+	<string>1.0.7</string>
 	<key>CFBundleVersion</key>
-	<string>1.0.6</string>
+	<string>1.0.7</string>
 	<key>Chrome</key>
 	<dict>
 		<key>Global Page</key>
@@ -25,6 +25,10 @@
 	<dict>
 		<key>Scripts</key>
 		<dict>
+			<key>End</key>
+			<array>
+				<string>afterLoad.js</string>
+			</array>
 			<key>Start</key>
 			<array>
 				<string>beforeLoad.js</string>

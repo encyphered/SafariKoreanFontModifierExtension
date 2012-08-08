@@ -10,31 +10,48 @@
         safari.extension.addContentStyleSheetFromURL(safari.extension.baseURI + name, ['http://' + host, 'https://' + host]);
     };
 
-    var getMatchedHost = function(host) {
-        if (host == null || host == undefined || host == '') {
-            return;
+    var removeStylesheet = function(name) {
+        safari.extension.removeContentStyleSheet(safari.extension.baseURI + name);
+    };
+
+    var getMatchedHost = function(host, type) {
+        if (!host || !type) {
+            return null;
         }
 
-        var includes = safari.extension.settings.includes;
-        var includeHosts = (includes == undefined || includes == null) ? [] : includes.split(' ');
-        var matched = null;
-        for (var i in includeHosts) {
-            if (host.indexOf(includeHosts[i]) >= 0) {
-                matched = includeHosts[i];
-                break;
+        var matches = safari.extension.settings[type];
+        var matchedHosts = (matches == undefined || matches == null) ? [] : matches.split(' ');
+
+        for (var i in matchedHosts) {
+            if (host.indexOf(matchedHosts[i]) >= 0) {
+                return matchedHosts[i];
             }
         }
 
+        return null;
+    };
+
+    var setForceFontCSSbyMatchedHost = function(event, host) {
+        var matched = getMatchedHost(host, 'includes');
+
         if (matched != null) {
             addStylesheet('force.css', host);
+            event.target.page.dispatchMessage('setForceDefaultFont');
         }
     };
+
+    var setForceFontCSSbyExcludedHost = function(event, host) {
+        var matched = getMatchedHost(host, 'excludes');
+        if (!matched) {
+            addStylesheet('force.css', host);
+        }
+    }
 
     safari.application.addEventListener('message', function(event) {
         var callback;
         eval('callback = typeof ' + event.name + '== "undefined" ? null : ' + event.name + ';');
         if (callback != null) {
-            callback(event.message);
+            callback(event, event.message);
         }
     }, true);
 </script>

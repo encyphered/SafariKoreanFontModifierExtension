@@ -1,6 +1,5 @@
 (function() {
-    return;
-    if (window.forceDefaultFont || window.location.href == 'about:blank') {
+    if (window.forceDefaultFont || !window.location.href || window.location.href == 'about:blank') {
         return;
     }
 
@@ -39,6 +38,6 @@
     }
 
     if (isKorean) {
-        safari.self.tab.dispatchMessage('forceDefaultFont', window.location.host);
+        safari.self.tab.dispatchMessage('setForceFontCSSbyExcludedHost ', window.location.host);
     }
 })();

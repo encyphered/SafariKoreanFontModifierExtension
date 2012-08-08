@@ -16,7 +16,7 @@
 		<key>Key</key>
 		<string>excludes</string>
 		<key>Title</key>
-		<string>Host to exclude</string>
+		<string>Host to exclude Korean detection</string>
 		<key>Type</key>
 		<string>TextField</string>
 	</dict>
