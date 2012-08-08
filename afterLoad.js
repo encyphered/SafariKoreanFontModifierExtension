@@ -1,4 +1,5 @@
 (function() {
+    return;
     if (window.forceDefaultFont || window.location.href == 'about:blank') {
         return;
     }

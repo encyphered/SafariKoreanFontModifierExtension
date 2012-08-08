@@ -25,10 +25,6 @@
 	<dict>
 		<key>Scripts</key>
 		<dict>
-			<key>End</key>
-			<array>
-				<string>afterLoad.js</string>
-			</array>
 			<key>Start</key>
 			<array>
 				<string>beforeLoad.js</string>
