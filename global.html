@@ -3,14 +3,18 @@
 
 <head>
 <script>
-    var forceCss = function(host) {
+    var addStylesheet = function(name, host) {
         host = (host.indexOf('.') != 0) ? '*.' + host : '*' + host;
         host = (host.charAt(host.length - 1) == '/') ? host + '*' : host + '/*';
 
-        safari.extension.addContentStyleSheetFromURL(safari.extension.baseURI + 'force.css', ['http://' + host, 'https://' + host]);
+        safari.extension.addContentStyleSheetFromURL(safari.extension.baseURI + name, ['http://' + host, 'https://' + host]);
     };
 
     var getMatchedHost = function(host) {
+        if (host == null || host == undefined || host == '') {
+            return;
+        }
+
         var includes = safari.extension.settings.includes;
         var includeHosts = (includes == undefined || includes == null) ? [] : includes.split(' ');
         var matched = null;
@@ -22,7 +26,7 @@
         }
 
         if (matched != null) {
-            forceCss(host);
+            addStylesheet('force.css', host);
         }
     };
 
