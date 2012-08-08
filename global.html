@@ -6,7 +6,7 @@
     safari.application.addEventListener('message', function(event) {
         if (event.name == 'getMatchedHost') {
             var host = event.message;
-            var targetHosts = safari.extension.settings.hosts.split(' ');
+            var targetHosts = safari.extension.settings.includes.split(' ');
             for (var i in targetHosts) {
                 if (host.indexOf(targetHosts[i]) >= 0) {
                     event.target.page.dispatchMessage('returnMatchedHost', targetHosts[i]);
@@ -16,6 +16,12 @@
             safari.extension.removeContentStyleSheet(safari.extension.baseURI + 'force.css');
         } else if (event.name == 'forceDefaultFont') {
             var host = event.message;
+            var excludeHosts = safari.extension.settings.excludes.split(' ');
+            for (var i in excludeHosts) {
+                if (host.indexOf(excludeHosts[i]) >= 0) {
+                }
+            }
+
             host = (host.indexOf('.') != 0) ? '*.' + host : '*' + host;
             host = (host.charAt(host.length - 1) == '/') ? host + '*' : host + '/*';
 

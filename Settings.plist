@@ -6,9 +6,17 @@
 		<key>DefaultValue</key>
 		<string>.kr naver.com daum.net nate.com tistory.com egloos.com</string>
 		<key>Key</key>
-		<string>hosts</string>
+		<string>includes</string>
 		<key>Title</key>
 		<string>Host to assign font</string>
+		<key>Type</key>
+		<string>TextField</string>
+	</dict>
+	<dict>
+		<key>Key</key>
+		<string>excludes</string>
+		<key>Title</key>
+		<string>Host to exclude</string>
 		<key>Type</key>
 		<string>TextField</string>
 	</dict>
