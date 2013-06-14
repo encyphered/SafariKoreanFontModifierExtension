@@ -17,7 +17,7 @@
     var metaTags = document.getElementsByTagName('meta');
     for (i = 0; i < metaTags.length; i++) {
         var meta = metaTags[i];
-        var httpEquiv = meta.getAttribute('http-equiv')
+        var httpEquiv = meta.getAttribute('http-equiv');
         if (httpEquiv != null && httpEquiv.toLowerCase() == 'content-type') {
             var content = meta.getAttribute('content');
             if (content != null) {
