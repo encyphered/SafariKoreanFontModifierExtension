@@ -11,7 +11,6 @@ This extension resolve these issues.
 
 * Replace 'legacy' fonts via CSS3 @font-face directives.
 * Replace the remaining legacy fonts from pre-defined host.
-* If host does not match with pre-defined, determine page language and force default font.
 
 ## Note
 
