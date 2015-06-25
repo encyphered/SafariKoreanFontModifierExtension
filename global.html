@@ -3,57 +3,35 @@
 
 <head>
 <script>
-    var addStylesheet = function(name, host) {
-        host = (host.indexOf('.') != 0) ? '*.' + host : '*' + host;
-        host = (host.charAt(host.length - 1) == '/') ? host + '*' : host + '/*';
-
-        safari.extension.addContentStyleSheetFromURL(safari.extension.baseURI + name, ['http://' + host, 'https://' + host]);
-    };
-
-    var removeStylesheet = function(name) {
-        safari.extension.removeContentStyleSheet(safari.extension.baseURI + name);
-    };
-
-    var getMatchedHost = function(host, type) {
-        if (!host || !type) {
-            return null;
-        }
-
-        var matches = safari.extension.settings[type];
-        var matchedHosts = (matches == undefined || matches == null) ? [] : matches.split(' ');
-
-        for (var i in matchedHosts) {
-            if (host.indexOf(matchedHosts[i]) >= 0) {
-                return matchedHosts[i];
+    function getHosts() {
+        var matches = safari.extension.settings['includes'];
+        matches = !matches ? [] : matches.split(' ');
+        var hosts = [];
+        for (var i in matches) {
+            var host = matches[i];
+            if (host.substring(0,1) == '.') {
+                host = '*' + host;
+            } else {
+                host = '*.' + host;
             }
+            if (host.substring(host.length-1, host.length) == '/') {
+                host = host + '*';
+            } else {
+                host = host + '/*';
+            }
+            hosts.push('http://' + host);
+            hosts.push('https://' + host);
         }
-
-        return null;
-    };
-
-    var setForceFontCSSbyMatchedHost = function(event, host) {
-        var matched = getMatchedHost(host, 'includes');
-
-        if (matched != null) {
-            addStylesheet('force.css', host);
-            event.target.page.dispatchMessage('setForceDefaultFont');
-        }
-    };
-
-    var setForceFontCSSbyExcludedHost = function(event, host) {
-        var matched = getMatchedHost(host, 'excludes');
-        if (!matched) {
-            addStylesheet('force.css', host);
-        }
+        return hosts;
     }
 
-    safari.application.addEventListener('message', function(event) {
-        var callback;
-        eval('callback = typeof ' + event.name + '== "undefined" ? null : ' + event.name + ';');
-        if (callback != null) {
-            callback(event, event.message);
-        }
-    }, true);
+    var includeHosts = getHosts();
+    console.log(includeHosts);
+
+    safari.extension.addContentStyleSheetFromURL(
+        safari.extension.baseURI + 'force.css',
+        includeHosts
+    );
 </script>
 </head>
 

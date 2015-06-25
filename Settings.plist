@@ -8,15 +8,9 @@
 		<key>Key</key>
 		<string>includes</string>
 		<key>Title</key>
-		<string>Host to assign font</string>
-		<key>Type</key>
-		<string>TextField</string>
-	</dict>
-	<dict>
-		<key>Key</key>
-		<string>excludes</string>
-		<key>Title</key>
-		<string>Host to exclude Korean detection</string>
+		<string>Host to force assign font</string>
+		<key>Titles</key>
+		<array/>
 		<key>Type</key>
 		<string>TextField</string>
 	</dict>

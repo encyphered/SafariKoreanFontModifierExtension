@@ -5,7 +5,7 @@
 	<key>Author</key>
 	<string>encyphered@gmail.com</string>
 	<key>Builder Version</key>
-	<string>8536.25</string>
+	<string>10600.6.3</string>
 	<key>CFBundleDisplayName</key>
 	<string>KoreanFontModifier</string>
 	<key>CFBundleIdentifier</key>
@@ -13,9 +13,9 @@
 	<key>CFBundleInfoDictionaryVersion</key>
 	<string>6.0</string>
 	<key>CFBundleShortVersionString</key>
-	<string>1.0.8</string>
+	<string>1.0.9</string>
 	<key>CFBundleVersion</key>
-	<string>1.0.8</string>
+	<string>1.0.9</string>
 	<key>Chrome</key>
 	<dict>
 		<key>Global Page</key>
@@ -24,21 +24,14 @@
 	<key>Content</key>
 	<dict>
 		<key>Scripts</key>
-		<dict>
-			<key>End</key>
-			<array>
-				<string>afterLoad.js</string>
-			</array>
-			<key>Start</key>
-			<array>
-				<string>beforeLoad.js</string>
-			</array>
-		</dict>
+		<dict/>
 		<key>Stylesheets</key>
 		<array>
 			<string>define.css</string>
 		</array>
 	</dict>
+	<key>DeveloperIdentifier</key>
+	<string>7TV8L7M5BX</string>
 	<key>ExtensionInfoDictionaryVersion</key>
 	<string>1.0</string>
 	<key>Permissions</key>
