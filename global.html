@@ -3,8 +3,8 @@
 
 <head>
 <script>
-    function getHosts() {
-        var matches = safari.extension.settings['includes'];
+    function getHosts(type) {
+        var matches = safari.extension.settings[type];
         matches = !matches ? [] : matches.split(' ');
         var hosts = [];
         for (var i in matches) {
@@ -25,13 +25,16 @@
         return hosts;
     }
 
-    var includeHosts = getHosts();
-    console.log(includeHosts);
+    var includeHosts = getHosts('includes');
+    var excludeHosts = getHosts('excludes');
 
-    safari.extension.addContentStyleSheetFromURL(
-        safari.extension.baseURI + 'force.css',
-        includeHosts
-    );
+    if (includeHosts.length || excludeHosts.length) {
+        safari.extension.addContentStyleSheetFromURL(
+            safari.extension.baseURI + 'force.css',
+            includeHosts,
+            excludeHosts
+        );
+    }
 </script>
 </head>
 

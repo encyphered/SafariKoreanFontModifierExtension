@@ -4,13 +4,21 @@
 <array>
 	<dict>
 		<key>DefaultValue</key>
-		<string>.kr naver.com daum.net nate.com tistory.com egloos.com</string>
+		<string>naver.com daum.net nate.com tistory.com egloos.com</string>
 		<key>Key</key>
 		<string>includes</string>
 		<key>Title</key>
 		<string>Host to force assign font</string>
 		<key>Titles</key>
 		<array/>
+		<key>Type</key>
+		<string>TextField</string>
+	</dict>
+	<dict>
+		<key>Key</key>
+		<string>excludes</string>
+		<key>Title</key>
+		<string>Host to exclude from above</string>
 		<key>Type</key>
 		<string>TextField</string>
 	</dict>
